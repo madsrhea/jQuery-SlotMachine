@@ -97,6 +97,12 @@ img {
 #artist-names{
     padding-top: 50%;
     text-align: center;
+    color: white;
+}
+
+#random-artist
+{
+    font-weight: 700;
 }
 
 /**********************************************/

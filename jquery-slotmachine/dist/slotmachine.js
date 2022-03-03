@@ -19,7 +19,47 @@ const element = [ document.getElementById('sq1')
                 , document.getElementById('sq8')
                 , document.getElementById('sq9') ]
 const button = document.getElementById('randomizer');
-const slot1 = new SlotMachine(element.slice(0), {
+const slot1 = new SlotMachine(element[0], {
+  active: 2,
+  auto: true,
+  spins: 7
+});
+const slot2 = new SlotMachine(element[1], {
+  active: 2,
+  auto: true,
+  spins: 7
+});
+const slot3 = new SlotMachine(element[2], {
+  active: 2,
+  auto: true,
+  spins: 7
+});
+const slot4 = new SlotMachine(element[3], {
+  active: 2,
+  auto: true,
+  spins: 7
+});
+const slot5 = new SlotMachine(element[4], {
+  active: 2,
+  auto: true,
+  spins: 7
+});
+const slot6 = new SlotMachine(element[5], {
+  active: 2,
+  auto: true,
+  spins: 7
+});
+const slot7 = new SlotMachine(element[6], {
+  active: 2,
+  auto: true,
+  spins: 7
+});
+const slot8 = new SlotMachine(element[7], {
+  active: 2,
+  auto: true,
+  spins: 7
+});
+const slot9 = new SlotMachine(element[8], {
   active: 2,
   auto: true,
   spins: 7
@@ -27,8 +67,11 @@ const slot1 = new SlotMachine(element.slice(0), {
 
 
 button.addEventListener('click', function(event){
-  machine.active();
-  console.log("start!");
+  for(var i = 0; i < element.length; i++)
+  {
+    element[i].active();
+    console.log("start!");
+  }
 })
 
 },{"./slot-machine":3}],2:[function(require,module,exports){

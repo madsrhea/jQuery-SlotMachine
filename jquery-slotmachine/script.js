@@ -2,9 +2,6 @@
 const header = [ document.getElementById("name")
                , document.getElementById("event")
                , document.getElementById("date") ]
-               
-// button that starts the randomizer
-const button = document.getElementById("randomizer");
 
 // here are the color palettes that'll be used on the site
 const colorPalettes = [ ['#aeefb3', '#f19b03', '#b08004', '#e31a76', '#9c4881', '#01586b', '#5e331b', '#3f3b30', '#02294f']
@@ -24,6 +21,7 @@ const colors = [  document.getElementById("color0")
                 , document.getElementById("color7")
                 , document.getElementById("color8") ];
 
+// the 9 squares on the page to be randomized
 const slots = [   document.getElementById("sq0")
                 , document.getElementById("sq1") 
                 , document.getElementById("sq2")
@@ -121,15 +119,29 @@ const artistList = {
 ,   vikasGarg: 2
 }
 
+// button that starts the randomizer
+const button = document.getElementById("randomizer");
+
+// testing purposes - default images for the page
 const defaultImg =  [ 'images/testTile1.png' , 'images/testTile2.png' , 'images/testTile3.png' , 'images/testTile4.png', 'images/testTile5.png', 'images/testTile6.png', 'images/testTile7.png', 'images/testTile8.png', 'images/testTile9.png' ];
 
+// this is where the artist names will be printed to
 const artistText = document.getElementById("artist-names")
 
+// these two lines take the object and convert it into numbers like an array
+// then pick one out randomly
 const artists = Object.keys(artistList);
 const randomArtist = artists[Math.floor(Math.random() * artists.length)]
-console.log(randomArtist);
-const artistName = randomArtist.replace(/([A-Z])/g, ' $1').trim();
 
+// this formats the randomArtists name - for testing
+const artistName = randomArtist.replace(/([A-Z])/g, ' $1').trim();
+console.log(artistName);
+
+// this is where the randomly chosen artists name will be placed (a span inside the 'artist-names' element)
+const highlightedArtist = document.getElementById("random-artist");
+
+// currently randomizes palette - eventually will hook this up to artistList so it is not randomized
+// and instead pulls a palette that best matches that artist
 function palettes()
 {
     // const artistPalette = 
@@ -142,39 +154,52 @@ function palettes()
 
 }
 
+// this is what will set the default images and then grab a new set of images from the artists name drawn
 function slotImages()
 {   
     for(var i = 0; i < slots.length; i++)
     {
-        console.log(i);
         slots[i].innerHTML = ("<img src=\"" + defaultImg.slice(i, i + 1) + "\">");
+        if(button.click)
+        {   console.log(i);
+            slots[i].innerHTML = ("<img src=\"artists\\" + randomArtist + "\\" + i + ".jpg\">");
+        }
     }
 }
 
+// the function that will randomize the artists
+function randomizeArtist()
+{
+
+
+}
+
+// this prints the artists names out and will highlight the randomized one
 function printNames()
 {
     for (var i = 0; i < artists.length; i++)
     {
-        artistText.innerHTML += artists[i].replace(/([A-Z])/g, ' $1').trim();
+        if (artists[i] === randomArtist)
+        {
+            highlightedArtist.innerText += (" " + artists[i].replace(/([A-Z])/g, ' $1').trim());
+        }
+        else
+        {
+            artistText.innerText += (" " + artists[i].replace(/([A-Z])/g, ' $1').trim());
+        }
 
         if (i < artists.length - 1)
         {
-            artistText.innerHTML += " • "
+            artistText.innerText += " • "
         }
-        if (artists[i] === randomArtist)
-        {
-            artistText.style.color = "white";
-            artistText.style.fontStyle = "bold";
-        }
-
     
     } 
 
 }
 
-
-slotImages();
+// calling the functions
+palettes();
 button.onclick = function(){
-    palettes();
+    slotImages();
     }
 printNames();
