@@ -9,23 +9,26 @@
 'use strict';
 
 window.SlotMachine = require('./slot-machine');
-const element = document.getElementById('grid-line');
+const element = [ document.getElementById('sq1')
+                , document.getElementById('sq2')
+                , document.getElementById('sq3')
+                , document.getElementById('sq4')
+                , document.getElementById('sq5')
+                , document.getElementById('sq6')
+                , document.getElementById('sq7')
+                , document.getElementById('sq8')
+                , document.getElementById('sq9') ]
 const button = document.getElementById('randomizer');
-const machine = new SlotMachine(element, {
+const slot1 = new SlotMachine(element.slice(0), {
   active: 2,
   auto: true,
   spins: 7
-
 });
 
-myButton.addEventListener('click', () => {
-  machine.active;
+
+button.addEventListener('click', function(event){
+  machine.active();
   console.log("start!");
-    if (machine.active)
-    {
-      machine.stop;
-      console.log("stop!");
-    }  
 })
 
 },{"./slot-machine":3}],2:[function(require,module,exports){

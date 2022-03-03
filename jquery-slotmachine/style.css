@@ -1,0 +1,160 @@
+/*
+    For the purpose of my own sanity,
+    I'm going to dictate what order
+    the different segments go in here.
+
+    First, we start from out to in
+    & with general settings.
+    * -> html -> body
+    general: images, p, etc. etc.
+
+    Then we do left to right. But,
+    inside of the left and right elements
+    we're gonna order the things from
+    top to bottom.
+
+    So, out to in to left to top to bottom
+    to right.
+
+    Confusing enough? Cool.
+
+*/
+
+
+/* resetting margins / padding */
+*
+{
+    margin: 0;
+    padding: 0;    
+}
+
+/* "backdrop" */
+html 
+{
+    max-height: 875px; /* sizes will be changed later */
+    min-width: 1700px;
+    background-color: #f19b03;
+}
+/* container for two halves of page */
+body 
+{   
+    background-color: #3f3b30;
+    max-width: 90%;
+    margin: 1% auto 5%;
+    display: block;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.right
+{
+    min-height: 875px;
+}
+
+#artist-names {
+    float:inline-end;
+}
+
+/**********************************************/
+/*  ------------- LEFT COLUMN --------------- */
+/**********************************************/
+
+/* logo for event  */
+.left{
+    padding: 3%;
+}
+.event-name {
+    justify-content: center;
+}
+
+.event-name img {
+    max-width: 750px;
+}
+
+#name{
+    position: absolute;
+    z-index: 0;
+    filter: invert(88%) sepia(8%) saturate(1347%) hue-rotate(71deg) brightness(104%) contrast(87%);
+}
+
+#event{
+
+    position: absolute;
+    z-index: 1;
+    filter: invert(71%) sepia(54%) saturate(4681%) hue-rotate(7deg) brightness(103%) contrast(98%);
+}
+
+#date{
+    position: absolute;
+    z-index: 2;
+    filter: invert(40%) sepia(17%) saturate(1595%) hue-rotate(270deg) brightness(92%) contrast(98%);
+}
+
+#artist-names{
+    padding-top: 50%;
+    text-align: center;
+}
+
+/**********************************************/
+/*  ------------ RIGHT COLUMN --------------- */
+/**********************************************/
+
+/* color palette */
+#palette {
+    padding-top: 5%;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    display: block;
+  }
+
+  div.colors {
+      float: left;
+      height: 25px;
+      width: 9%;
+      margin-right: 13px;
+    }
+
+
+/* randomizer images */
+#grid-line {
+    width: 80%;
+    margin: auto;
+    padding: 5% 0%;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 5%;
+  }
+
+div.cell {
+    max-width: 175px;
+    max-height: 175px;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+.cell img {
+      border-radius: 2.5%;
+  }
+
+button {
+    margin-top: 10%;
+    margin-left: 330px; 
+    width: 200px;
+    height: 75px;
+}
+
+/* footer */
+footer{
+    flex: auto;
+    bottom: 0px;
+}
+
+footer img {
+    max-width: 10%;
+}
