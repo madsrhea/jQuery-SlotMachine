@@ -78,20 +78,17 @@ img {
 #name{
     position: absolute;
     z-index: 0;
-    filter: invert(88%) sepia(8%) saturate(1347%) hue-rotate(71deg) brightness(104%) contrast(87%);
 }
 
 #event{
 
     position: absolute;
     z-index: 1;
-    filter: invert(71%) sepia(54%) saturate(4681%) hue-rotate(7deg) brightness(103%) contrast(98%);
 }
 
 #date{
     position: absolute;
     z-index: 2;
-    filter: invert(40%) sepia(17%) saturate(1595%) hue-rotate(270deg) brightness(92%) contrast(98%);
 }
 
 #artist-names{
@@ -150,7 +147,7 @@ div.cell {
 
 button {
     margin-top: 10%;
-    margin-left: 330px; 
+    margin-left: 37.55%; 
     width: 200px;
     height: 75px;
 }
